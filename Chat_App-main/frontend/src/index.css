@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar,
+.scroll-style::-webkit-scrollbar {
+    width: 5px;
+    background-color: white;
+}
+
+body::-webkit-scrollbar-thumb,
+.scroll-style::-webkit-scrollbar-thumb {
+    width: 3px;
+    border-radius: 50px;
+    background-color: #1E293B;
+    box-shadow: inset 0px 0px 2px white;
+}
+
+.scroll-style-x::-webkit-scrollbar {
+    height: 2px;
+    background-color: white;
+}
+
+.scroll-style-x::-webkit-scrollbar-thumb {
+    height: 1px;
+    border-radius: 50px;
+    background-color: #1E293B;
+    box-shadow: inset 0px 0px 2px white;
+}
+
+body {
+    user-select: none;
+}
+
+/* Header Style */
+.hiddenbox {
+    top: -80px;
+}
+
+/* Chat Loading Style */
+#loader {
+    width: 40px;
+    aspect-ratio: 1;
+    --c: linear-gradient(#fff 0 0);
+    --m: radial-gradient(farthest-side, #fff 92%, #0000);
+    background:
+        var(--c), var(--m),
+        var(--c), var(--m),
+        var(--c), var(--m);
+    background-size: 8px 15px, 8px 8px;
+    background-repeat: no-repeat;
+    animation: chatLoading 1s infinite alternate;
+}
+
+@keyframes chatLoading {
+
+    0%,
+    10% {
+        background-position: 0 0, 0 100%, 50% 0, 50% 100%, 100% 0, 100% 100%
+    }
+
+    33% {
+        background-position: 0 100%, 0 0, 50% 0, 50% 100%, 100% 0, 100% 100%
+    }
+
+    66% {
+        background-position: 0 100%, 0 0, 50% 100%, 50% 0, 100% 0, 100% 100%
+    }
+
+    90%,
+    100% {
+        background-position: 0 100%, 0 0, 50% 100%, 50% 0, 100% 100%, 100% 0
+    }
+}
+
+/* Shimmer Style ---- */
+.shimmer-animated {
+    background: linear-gradient(to right, #334155, #1E293B, #334155, #1E293B, #334155);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ChatDetailsBox  */
+@keyframes slideIn {
+    from {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+.box-enter {
+    animation: slideIn 0.4s forwards;
+}
+
+.box-exit {
+    animation: slideOut 0.4s forwards;
+}
